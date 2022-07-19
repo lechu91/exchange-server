@@ -17,9 +17,9 @@ def verify():
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
     
-    if isinstance(sig, int):
-        result = True
-        return jsonify(result)
+#     if isinstance(sig, str):
+#         result = True
+#         return jsonify(result)
         
     
     
@@ -46,9 +46,9 @@ def verify():
         # eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
         
         if True: #eth_account.Account.recover_message(eth_encoded_msg, signature=sig) == pk:
-            result = True
-        else:
             result = False
+        else:
+            result = True
     else:
         # Check Algorand
         result = True
