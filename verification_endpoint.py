@@ -12,7 +12,7 @@ app.url_map.strict_slashes = False
 def verify():
     content = request.get_json(silent=True)
     
-    sig = content['sig'].hex()
+    sig = content['sig']
     message = content['payload']['message']
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
