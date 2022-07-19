@@ -28,7 +28,19 @@ def verify():
             result = False
     else:
         # Check Algorand
-        result = True
+
+        payload = "Sign this!"
+
+        algo_sk, algo_pk = algosdk.account.generate_account()
+        algo_sig_str = algosdk.util.sign_bytes(payload.encode('utf-8'),algo_sk)
+
+        if algosdk.util.verify_bytes(payload.encode('utf-8'),algo_sig_str,algo_pk):
+            result = True
+            print( "Algo sig verifies!" )
+        )
+        
+        else:
+            result = False
             
     return jsonify(result)
 
