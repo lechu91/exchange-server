@@ -17,6 +17,13 @@ def verify():
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
     
+    if type(sig) == str:
+        continue
+    else:
+        return jsonify(False)
+            
+    
+    
     eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
   
     if content['payload']['platform'] == 'Ethereum':
