@@ -54,9 +54,9 @@ def verify():
         # eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
         
         if eth_account.Account.recover_message(eth_encoded_msg, signature=sig) == pk:
-            result = False
-        else:
             result = True
+        else:
+            result = False
     else:
         # Check Algorand
         result = True
