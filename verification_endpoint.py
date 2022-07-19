@@ -12,7 +12,7 @@ app.url_map.strict_slashes = False
 def verify():
     content = request.get_json(silent=True)
     
-    message = json.load(content)
+    message = json.loads(content)
 
     if message['payload']['platform'] == 'Ethereum':
         # Do Ethereum validation
