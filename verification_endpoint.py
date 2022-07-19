@@ -19,7 +19,7 @@ def verify():
     
     
     sig2 = int(sig, 16)
-#     sig3 = hex(sig2)
+    sig3 = hex(sig2)
     
 #     if isinstance(sig, str):
 #         result = False
