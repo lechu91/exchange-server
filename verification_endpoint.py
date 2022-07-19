@@ -14,10 +14,10 @@ def verify():
     
     message = json.load(content)
 
-    if message['payload']['platform'] == 'Ethereum':
+    if True:#message['payload']['platform'] == 'Ethereum':
         # Do Ethereum validation
         result = True #Should only be true if signature validates
-    elif message['payload']['platform'] == 'Algorand':
+    elif False: #message['payload']['platform'] == 'Algorand':
         # Do Algorand validation
         result = False
     else:
