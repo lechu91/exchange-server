@@ -33,7 +33,7 @@ def verify():
         a_eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
         a_eth_sig_obj = eth_account.Account.sign_message(eth_encoded_msg,eth_sk)
 
-        if eth_account.Account.recover_message(a_eth_encoded_msg,signature=eth_sig_obj.signature.hex()) == eth_pk:
+        if eth_account.Account.recover_message(a_eth_encoded_msg,signature=a_eth_sig_obj.signature.hex()) == eth_pk:
             print( "Eth sig verifies!" )
         
         # Check Ethereum
