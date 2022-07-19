@@ -12,9 +12,9 @@ app.url_map.strict_slashes = False
 def verify():
     content = request.get_json(silent=True)
     
-    sig = content['sig']
-    message = json.dumps(content['payload']['message'])
-    pk = json.dumps(content['payload']['pk'])
+    sig = content['sig'].signature
+    message = content['payload']['message']
+    pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
     eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
   
