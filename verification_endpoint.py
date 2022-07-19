@@ -16,28 +16,11 @@ def verify():
     message = content['payload']['message']
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
-
-    
-  
+ 
     if content['payload']['platform'] == 'Ethereum':
         
-        eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
-        eth_account.Account.enable_unaudited_hdwallet_features()
-        acct, mnemonic = eth_account.Account.create_with_mnemonic()
-
-        eth_pk = acct.address
-        eth_sk = acct.key
-
-        a_payload = "Sign this!"
-
-        a_eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
-        a_eth_sig_obj = eth_account.Account.sign_message(eth_encoded_msg,eth_sk)
-
-#         if eth_account.Account.recover_message(a_eth_encoded_msg,signature=a_eth_sig_obj.signature.hex()) == eth_pk:
-#             print( "Eth sig verifies!" )
-        
         # Check Ethereum
-        # eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
+        eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
         
         if eth_account.Account.recover_message(eth_encoded_msg, signature=sig) == pk:
             result = True
