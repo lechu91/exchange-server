@@ -13,29 +13,15 @@ def verify():
     content = request.get_json(silent=True)
     
     sig = content['sig']
-    
-#     sig_hex = HexBytes(sig)
-    
     message = content['payload']['message']
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
+
     
-    
-#     sig2 = int(sig, 16)
-#     sig3 = hex(sig2)
-    
-# #     if isinstance(sig, str):
-# #         result = False
-# #         return jsonify(result)
-    
-        
-    
-    
-    eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
   
     if content['payload']['platform'] == 'Ethereum':
         
-        
+        eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
         eth_account.Account.enable_unaudited_hdwallet_features()
         acct, mnemonic = eth_account.Account.create_with_mnemonic()
 
