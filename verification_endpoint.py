@@ -12,7 +12,7 @@ app.url_map.strict_slashes = False
 def verify():
     content = request.get_json(silent=True)
     
-    sig = json.dumps(content['sig'])
+    sig = json.dumps(content['sig'].signature.hex())
     message = json.dumps(content['payload']['message'])
     pk = json.dumps(content['payload']['pk'])
     payload = json.dumps(content['payload'])
@@ -22,7 +22,7 @@ def verify():
        
         # Check Ethereum
         eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
-        if eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
+        if eth_account.Account.recover_message(eth_encoded_msg, sig) == pk:
             result = True
         else:
             result = False
