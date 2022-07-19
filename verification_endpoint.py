@@ -13,8 +13,11 @@ def verify():
     content = request.get_json(silent=True)
   
 
-    if content['payload'] != 'Ethereum':
+    if content.payload.platform == 'Ethereum':
         result = True
+    else:
+        result = False
+            
 #       # Do Ethereum validation
 #         result = True #Should only be true if signature validates
 #     else: #message['payload']['platform'] == 'Algorand':
