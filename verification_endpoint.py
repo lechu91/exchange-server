@@ -3,7 +3,6 @@ from flask_restful import Api
 import json
 import eth_account
 import algosdk
-import hexbytes
 
 app = Flask(__name__)
 api = Api(app)
@@ -54,7 +53,7 @@ def verify():
         # Check Ethereum
         # eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
         
-        if True: #eth_account.Account.recover_message(eth_encoded_msg, signature=sig) == pk:
+        if eth_account.Account.recover_message(eth_encoded_msg, signature=sig) == pk:
             result = False
         else:
             result = True
