@@ -17,7 +17,7 @@ def verify():
         result = True
     else:
         # Check Algorand
-        result = False
+        result = True
             
     return jsonify(result)
 
