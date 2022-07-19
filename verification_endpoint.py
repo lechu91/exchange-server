@@ -15,7 +15,7 @@ def verify():
     
     sig = content['sig']
     
-    sig_hex = HexBytes(sig)
+#     sig_hex = HexBytes(sig)
     
     message = content['payload']['message']
     pk = content['payload']['pk']
