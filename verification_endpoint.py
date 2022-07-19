@@ -17,10 +17,10 @@ def verify():
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
     
-    if type(sig) == str:
-        return jsonify(False)
-    else:
+    if isinstance(sig, str):
         continue
+    else:
+        return jsonify(False)
             
     
     
