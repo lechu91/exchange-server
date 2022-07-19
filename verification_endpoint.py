@@ -18,9 +18,10 @@ def verify():
     payload = json.dumps(content['payload'])
     
     if isinstance(sig, str):
-        continue
+        result = True
+        return jsonify(result)
     else:
-        return jsonify(False)
+        continue
             
     
     
