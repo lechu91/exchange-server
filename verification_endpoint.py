@@ -11,16 +11,18 @@ app.url_map.strict_slashes = False
 @app.route('/verify', methods=['GET','POST'])
 def verify():
     content = request.get_json(silent=True)
+    
+    message = json.load('content')        
 
-     if content['payload']['platform'] == 'Ethereum':
-         # Do Ethereum validation
-         result = True #Should only be true if signature validates
-     else: #message['payload']['platform'] == 'Algorand':
-         # Do Algorand validation
-         result = False
+#     if content['payload']['platform'] == 'Ethereum':
+#       # Do Ethereum validation
+#         result = True #Should only be true if signature validates
+#     else: #message['payload']['platform'] == 'Algorand':
+#       # Do Algorand validation
+#         result = False
 
      #Check if signature is valid
-#     result = True #Should only be true if signature validates
+    result = True #Should only be true if signature validates
 
     return jsonify(result)
 
