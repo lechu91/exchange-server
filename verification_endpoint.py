@@ -39,7 +39,7 @@ def verify():
         # Check Ethereum
         # eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
         
-        if eth_account.Account.recover_message(a_eth_encoded_msg, sig.hex()) == pk:
+        if eth_account.Account.recover_message(eth_encoded_msg, signature=a_eth_sig_obj.signature.hex()) == pk:
             result = True
         else:
             result = False
