@@ -22,16 +22,15 @@ def verify():
 #         acct, mnemonic = eth_account.Account.create_with_mnemonic()
 #         eth_pk = acct.address
 #         eth_sk = acct.key
-         payload = json.dumps(content['payload'])
-         eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
+        payload = json.dumps(content['payload'])
+#         eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
 #         eth_sig_obj = eth_account.Account.sign_message(eth_encoded_msg,eth_sk)
-          eth_sig_obj = sig
+#         eth_sig_obj = sig
 #         print( eth_sig_obj.messageHash )
 #         if eth_account.Account.recover_message(eth_encoded_msg,signature=eth_sig_obj.signature.hex()) == eth_pk:
 #             result = True
-        if eth_account.Account.recover_message(eth_encoded_msg,signature=eth_sig_ob.signature.hex()) == pk:
+        if eth_account.Account.recover_message(payload, sig.signature.hex()) == pk:
             result = True
-
         else:
             result = False
     else:
