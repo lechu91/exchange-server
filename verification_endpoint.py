@@ -17,9 +17,14 @@ def verify():
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
     
-    if isinstance(sig, str):
-        result = False
-        return jsonify(result)
+    
+    sig2 = int(sig, 16)
+    sig3 = hex(sig2)
+    
+#     if isinstance(sig, str):
+#         result = False
+#         return jsonify(result)
+    
         
     
     
