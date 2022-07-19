@@ -16,13 +16,13 @@ def verify():
     message = content['payload']['message']
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
+    
     eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
   
     if content['payload']['platform'] == 'Ethereum':
        
         # Check Ethereum
-        eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
-        if eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
+        if json.dumps(eth_account.Account.recover_message(eth_encoded_msg, sig.hex())) == pk:
             result = True
         else:
             result = False
