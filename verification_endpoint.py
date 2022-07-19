@@ -13,7 +13,7 @@ def verify():
     content = request.get_json(silent=True)
   
 
-    if content.payload.platform == 'Ethereum':
+    if content.payload == 'Ethereum':
         result = True
     else:
         result = False
