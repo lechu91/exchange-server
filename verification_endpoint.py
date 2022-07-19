@@ -20,9 +20,7 @@ def verify():
     if isinstance(sig, str):
         result = True
         return jsonify(result)
-    else:
-        continue
-            
+        
     
     
     eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
