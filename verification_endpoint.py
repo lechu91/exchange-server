@@ -14,6 +14,9 @@ def verify():
     content = request.get_json(silent=True)
     
     sig = content['sig']
+    
+    sig_hex = HexBytes(sig)
+    
     message = content['payload']['message']
     pk = content['payload']['pk']
     payload = json.dumps(content['payload'])
