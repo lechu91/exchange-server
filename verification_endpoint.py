@@ -18,9 +18,9 @@ def verify():
     payload = json.dumps(content['payload'])
     
     if type(sig) == str:
-        continue
-    else:
         return jsonify(False)
+    else:
+        continue
             
     
     
