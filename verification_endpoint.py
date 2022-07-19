@@ -37,7 +37,9 @@ def verify():
             print( "Eth sig verifies!" )
         
         # Check Ethereum
-        if True:#eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
+        # eth_account.Account.recover_message(eth_encoded_msg, sig.hex()) == pk:
+        
+        if eth_account.Account.recover_message(a_eth_encoded_msg, sig.hex()) == pk:
             result = True
         else:
             result = False
