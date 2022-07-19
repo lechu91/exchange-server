@@ -20,8 +20,9 @@ def verify():
        
         # Check Ethereum
         payload = json.dumps(content['payload'])
+        eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
 
-        if True: #eth_account.Account.recover_message(payload, sig.signature.hex()) == pk:
+        if eth_account.Account.recover_message(eth_encoded_msg, sig.signature.hex()) == pk:
             result = True
         else:
             result = False
